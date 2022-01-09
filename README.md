@@ -2,7 +2,7 @@
 - **Picom**
 - **I3-gaps**
 - **rofi**
-- **polybar**
-
-## Screenshot
+- **polybar** 
+## Screenshot
 ![](screenshot.png)
+
