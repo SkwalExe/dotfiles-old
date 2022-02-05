@@ -1,14 +1,20 @@
 
+
 # Skwal dotfiles
 - **Picom**
 - **I3-gaps**
 - **rofi**
 - **polybar** 
-## Screenshot
+# Screenshot
 ![](screenshot.png)
 
-## install packages
-
+# install packages
+### Arch based distros
+using an AUR helper
+```bash
+yay -S rofi picom nitrogen i3-gaps lxappearance polybar
+```
+### Debian based distros
 Add ppa for i3-gaps (if needed)
 
 ```bash
@@ -33,38 +39,67 @@ cd polybar
 sudo ./build.sh
 ```
 
-## add my dotfiles
-clone this repo 
+# add my dotfiles
+### clone this repo 
 ```bash
 git clone https://skwal.net/SkwalExe/dotfiles
 cd dotfiles 
 cd .config
 ```
-copy i3 config file 
+### copy i3 config file
+uncomment the line `exec_always --no-startup-id nitrogen --restore` if you use nitrogen 
 ```bash
-cd i3
+# dotfiles/.config/i3
 cp config ~/.config/i3/
 ```
-copy picom config file
+### copy picom config file
 ```bash
-cd ..
+# dotfiles/.config/
 cp picom.conf ~/.config/
 ```
-copy rofi config file
+### copy rofi config file
 ```bash
-mkdir ~/.config/rofi
-cd rofi 
+# dotfiles/.config/rofi
+mkdir ~/.config/rofi 
 cp config.rasi ~/.config/rofi
 ```
-copy polybar config file
+### copy polybar config file
 ```bash
-cd ..
-cd polybar 
+# dotfiles/.config/polybar
 mkdir ~/.config/polybar
 cp * ~/.config/polybar
 ```
-## install nerdfonts
-download nerd fonts from [here](https://objects.githubusercontent.com/github-production-release-asset-2e65be/27574418/1ec18580-452f-11ea-8073-041a7cbaca61?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20220113%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220113T201533Z&X-Amz-Expires=300&X-Amz-Signature=f011c6d65b14ef9e2376069e3660258f528f7802499be502b7401adf6734a4fb&X-Amz-SignedHeaders=host&actor_id=69600456&key_id=0&repo_id=27574418&response-content-disposition=attachment%3B%20filename%3DFiraCode.zip&response-content-type=application%2Foctet-stream)
+### copy gtk theme
+add the padding in gnome-terminal
+```bash
+# dotfiles/.config/gtk-3.0
+cp gtk.css ~/.config/gtk-3.0/
+# if you already have a gtk.css
+cat gtk.css >> ~/.config/gtk-3.0/gtk.css
+```
+### Install gnome-terminal profile
+```bash
+# dotfiles/.config
+# create current profiles backup 
+dconf dump /org/gnome/terminal/legacy/profiles:/ > ~/gnome-terminal-profiles-backup.dconf;
+
+# load Skwal profile
+dconf load /org/gnome/terminal/legacy/profiles:/ < gnome-terminal-profile.dconf; 
+```
+
+**Oneliner**
+```bash
+dconf dump /org/gnome/terminal/legacy/profiles:/ > ~/gnome-terminal-profiles-backup.dconf; echo "Created profiles backup in ~/gnome-terminal-profiles-backup.dconf";dconf load /org/gnome/terminal/legacy/profiles:/ < gnome-terminal-profile.dconf; 
+```
+
+**Restore backup**
+```bash 
+dconf load /org/gnome/terminal/legacy/profiles:/ < ~/gnome-terminal-profiles-backup.dconf
+```
+
+
+# install nerdfonts
+download nerd fonts from [here](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip)
 ```bash
 mkdir NerdFonts
 unzip FiraCode.zip -d NerdFonts 
@@ -74,9 +109,50 @@ update font cache
 ```bash
 fc-cache -f -v
 ```
-## final
+# Change gtk theme
+### Arch linux
+using an AUR helper
+```bash
+yay -S gnome-themes-extra
+```
+### Debian based distros
+```bash
+sudo apt install gnome-themes-extra
+```
+## Apply the theme using lxappearance
+```bash
+lxappearance
+```
+**Widget > Adwaita-Dark**
+# set wallpaper
+```
+nitrogen
+```
+
+**don't forget to uncomment the line `exec_always --no-startup-id nitrogen --restore` in the i3 config file**
+
+# Additionnal information
+## Blur not working
+**In the picom config `~/.config/picom.conf` change the lines**
+```
+blur: {
+  method = "kawase";
+  strength = 10;
+  background = false;
+  background-frame = false;
+  background-fixed = false;
+}
+```
+**to**
+```
+blur: {
+  method = "gaussian";
+  size = 20; 
+  deviation = 15;
+};
+```
+
+# final
 You can now login to your i3 session, is you have any probleme, don't hesitate to open an issue
-## contributing
+# contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-
