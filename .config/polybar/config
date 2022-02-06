@@ -78,10 +78,11 @@ cursor-scroll = ns-resize
 # inherit = bar/main
 # monitor = ${env:MONITOR:HDMI-0}
 
+
 [module/matrix]
 type = custom/script
-exec = ~/.config/polybar/mini-matrix.sh
-interval = 0.07
+exec = mini-matrix -c 20 -s 0.07
+tail = true
 
 [module/xwindow]
 type = internal/xwindow

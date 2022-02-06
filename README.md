@@ -12,7 +12,7 @@
 ### Arch based distros
 using an AUR helper
 ```bash
-yay -S rofi picom nitrogen i3-gaps lxappearance polybar
+yay -S rofi picom nitrogen i3-gaps lxappearance polybar mini-matrix
 ```
 ### Debian based distros
 Add ppa for i3-gaps (if needed)
@@ -38,7 +38,15 @@ build polybar
 cd polybar
 sudo ./build.sh
 ```
-
+clone [mini-matrix](https://github.com/SkwalExe/mini-matrix)
+```bash
+git clone https://github.com/SkwalExe/mini-matrix
+```
+install mini-matrix
+```bash
+cd mini-matrix
+make
+```
 # add my dotfiles
 ### clone this repo 
 ```bash
@@ -132,6 +140,8 @@ nitrogen
 **don't forget to uncomment the line `exec_always --no-startup-id nitrogen --restore` in the i3 config file**
 
 # Additionnal information
+## The polybar config uses [mini-matrix](https://github.com/SkwalExe/mini-matrix)
+# Troubleshooting
 ## Blur not working
 **In the picom config `~/.config/picom.conf` change the lines**
 ```
