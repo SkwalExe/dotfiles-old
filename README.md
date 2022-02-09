@@ -8,6 +8,18 @@
 # Screenshot
 ![](screenshot.png)
 
+# install nerdfonts
+download nerd fonts from [here](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip)
+```bash
+mkdir NerdFonts
+unzip FiraCode.zip -d NerdFonts 
+mv NerdFonts ~/.local/share/fonts
+```
+update font cache
+```bash
+fc-cache -f -v
+```
+
 # install packages
 ### Arch based distros
 using an AUR helper
@@ -106,17 +118,6 @@ dconf load /org/gnome/terminal/legacy/profiles:/ < ~/gnome-terminal-profiles-bac
 ```
 
 
-# install nerdfonts
-download nerd fonts from [here](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip)
-```bash
-mkdir NerdFonts
-unzip FiraCode.zip -d NerdFonts 
-mv NerdFonts ~/.local/share/fonts
-```
-update font cache
-```bash
-fc-cache -f -v
-```
 # Change gtk theme
 ### Arch linux
 using an AUR helper
