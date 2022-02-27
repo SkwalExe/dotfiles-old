@@ -6,7 +6,14 @@
 - **rofi**
 - **polybar** 
 # Screenshot
-![](screenshot.png)
+## Screenshot
+![](1.png)
+
+## Gif
+![](2.gif)
+
+## Gif with rofi
+![](3.gif)
 
 # install nerdfonts
 download nerd fonts from [here](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip)
