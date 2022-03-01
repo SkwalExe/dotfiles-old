@@ -15,6 +15,13 @@
 ## Gif with rofi
 ![](3.gif)
 
+# Automatic installation script 
+My dotfiles are provided with a script that will automatically install them on your system.
+```bash
+$ ./install.sh
+```
+
+
 # install nerdfonts
 download nerd fonts from [here](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip)
 ```bash
@@ -42,11 +49,11 @@ sudo apt update
 ```
 install required packages
 ```bash
-sudo apt install rofi picom nitrogen i3-gaps lxappearance
+sudo apt install rofi nitrogen i3-gaps lxappearance
 ```
 install dependencies for polybar build 
 ```bash
-sudo apt install build-essential git cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libjsoncpp-dev libpulse-dev libiw-devast
+sudo apt install build-essential git cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev i3-wm libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev
 ```
 clone polybar 
 ```bash
@@ -57,6 +64,21 @@ build polybar
 cd polybar
 sudo ./build.sh
 ```
+clone picom
+```bash
+git clone https://github.com/yshui/picom.git
+```
+build picom
+```bash
+git submodule update --init --recursive
+
+meson --buildtype=release . build
+
+ninja -C build
+
+ninja -C build install
+```
+
 clone [mini-matrix](https://github.com/SkwalExe/mini-matrix)
 ```bash
 git clone https://github.com/SkwalExe/mini-matrix
