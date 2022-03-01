@@ -178,7 +178,7 @@ gaps inner 45
 # uncomment to restore your wallpaper if you use nitrogen
 # exec_always --no-startup-id nitrogen --restore
 
-gaps outer 20
+# gaps outer 20
 
 for_window [class="^.*"] border pixel 2
 
