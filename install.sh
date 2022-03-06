@@ -28,7 +28,7 @@ cd /tmp/skwal-dotfiles
 
 touch skwal-dotfiles.log
 
-if ! command -v curl &>/tmp/skwal-dotfiles/skwal-dotfiles.log; then 
+if ! command -v curl &>>/tmp/skwal-dotfiles/skwal-dotfiles.log; then 
   printf "${red}[ x ] : please install curl ${reset}\n" 
   exit 1
 fi
@@ -40,7 +40,7 @@ read confirmation
 
 if [ -z "$confirmation" ] || [[ "${confirmation,,}" == "y" ]]; then
   printf "${blue}[ i ] : Downloading nerd-fonts...\n"
-  if ! sudo curl -o FiraCode.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip -L &>/tmp/skwal-dotfiles/skwal-dotfiles.log; then
+  if ! sudo curl -o FiraCode.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip -L &>>/tmp/skwal-dotfiles/skwal-dotfiles.log; then
     printf "${red}[ x ] : An error occured downloading nerd-fonts !"
     exit 1
   fi
@@ -49,12 +49,12 @@ if [ -z "$confirmation" ] || [[ "${confirmation,,}" == "y" ]]; then
 
   printf "${blue}[ i ] : Extracting nerd-fonts...\n"
 
-  if ! mkdir -p ~/.local/share/fonts/FiraCode &>/tmp/skwal-dotfiles/skwal-dotfiles.log; then 
+  if ! mkdir -p ~/.local/share/fonts/FiraCode &>>/tmp/skwal-dotfiles/skwal-dotfiles.log; then 
     printf "${red}[ x ] : An error occured creating folder for nerd-fonts ${blue}\n" 
     exit 1
   fi
 
-  if ! unzip -o FiraCode.zip -d ~/.local/share/fonts/FiraCode &>/tmp/skwal-dotfiles/skwal-dotfiles.log; then 
+  if ! unzip -o FiraCode.zip -d ~/.local/share/fonts/FiraCode &>>/tmp/skwal-dotfiles/skwal-dotfiles.log; then 
     printf "${red}[ x ] : An error occured extracting nerd-fonts !\n"
     exit 1
   fi
@@ -63,7 +63,7 @@ if [ -z "$confirmation" ] || [[ "${confirmation,,}" == "y" ]]; then
 
 
   printf "${blue}[ i ] : Updating font cache...\n"
-  if ! fc-cache -f -v &>/tmp/skwal-dotfiles/skwal-dotfiles.log; then
+  if ! fc-cache -f -v &>>/tmp/skwal-dotfiles/skwal-dotfiles.log; then
     printf "${red}[ x ] : An error occured updating font cache !\n"
     exit 1
   fi
@@ -93,7 +93,7 @@ if [[ "${confirmation,,}" =~ ^(a|b)$ ]]; then
       printf "${green}[ ? ] : Please specify your AUR helper [Default: yay] : ${yellow}"
       read aur
       aur=${aur:-yay}
-      if ! command -v $aur &>/tmp/skwal-dotfiles/skwal-dotfiles.log; then
+      if ! command -v $aur &>>/tmp/skwal-dotfiles/skwal-dotfiles.log; then
         printf "${red}[ x ] : $aur not found !\n"
         exit 1
       fi
@@ -178,7 +178,7 @@ if [[ "${confirmation,,}" =~ ^(a|b)$ ]]; then
     ;;
     b)
 
-      if ! command -v apt &>/tmp/skwal-dotfiles/skwal-dotfiles.log; then
+      if ! command -v apt &>>/tmp/skwal-dotfiles/skwal-dotfiles.log; then
         printf "${red}[ x ] : apt not found !\n"
         exit 1
       fi
@@ -209,13 +209,13 @@ if [[ "${confirmation,,}" =~ ^(a|b)$ ]]; then
 
         printf "${blue}[ i ] : Cloning picom...\n"
         rm -rf picom
-        if ! git clone https://github.com/yshui/picom.git &>/tmp/skwal-dotfiles/skwal-dotfiles.log ; then
+        if ! git clone https://github.com/yshui/picom.git &>>/tmp/skwal-dotfiles/skwal-dotfiles.log ; then
           printf "${red}[ x ] : An error occured cloning picom !\n"
           exit 1
         fi
         cd picom
 
-        git submodule update --init --recursive &>/tmp/skwal-dotfiles/skwal-dotfiles.log
+        git submodule update --init --recursive &>>/tmp/skwal-dotfiles/skwal-dotfiles.log
 
         printf "${blue}[ i ] : Building picom...\n"
 
@@ -292,7 +292,7 @@ if [[ "${confirmation,,}" =~ ^(a|b)$ ]]; then
       if [ -z "$confirmation" ] || [[ "${confirmation,,}" == "y" ]]; then
         printf "${blue}[ i ] : Installing polybar...\n"
         rm -rf polybar
-        if ! git clone --recursive https://github.com/polybar/polybar &>/tmp/skwal-dotfiles/skwal-dotfiles.log ; then
+        if ! git clone --recursive https://github.com/polybar/polybar &>>/tmp/skwal-dotfiles/skwal-dotfiles.log ; then
           printf "${red}[ x ] : An error occured cloning polybar !\n"
           exit 1
         fi
@@ -310,7 +310,7 @@ if [[ "${confirmation,,}" =~ ^(a|b)$ ]]; then
       if [ -z "$confirmation" ] || [[ "${confirmation,,}" == "y" ]]; then
         printf "${blue}[ i ] : Installing mini-matrix...\n"
         rm -rf mini-matrix
-        if ! git clone https://github.com/SkwalExe/mini-matrix.git &>/tmp/skwal-dotfiles/skwal-dotfiles.log ; then
+        if ! git clone https://github.com/SkwalExe/mini-matrix.git &>>/tmp/skwal-dotfiles/skwal-dotfiles.log ; then
           printf "${red}[ x ] : An error occured cloning mini-matrix !\n"
           exit 1
         fi
@@ -335,7 +335,7 @@ printf "\n\n"
 
 printf "${blue}[ i ] : Cloning dotfiles...\n"
 rm -rf dotfiles
-if ! git clone https://github.com/SkwalExe/dotfiles.git &>/tmp/skwal-dotfiles/skwal-dotfiles.log ; then
+if ! git clone https://github.com/SkwalExe/dotfiles.git &>>/tmp/skwal-dotfiles/skwal-dotfiles.log ; then
   printf "${red}[ x ] : An error occured cloning dotfiles !\n"
   exit 1
 fi
