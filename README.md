@@ -5,6 +5,7 @@
 - **I3-gaps**
 - **rofi**
 - **polybar** 
+
 # Screenshot
 ## Screenshot
 ![](1.png)
@@ -15,14 +16,26 @@
 ## Gif with rofi
 ![](3.gif)
 
+# Oneline install on arch
+The skwal dotfiles installation script is available on the AUR 
+
+**install**
+```bash
+yay -S skwal-dotfiles-git
+```
+
+**and execute**
+```bash
+skwal-dotfiles-install
+```
 # Automatic installation script 
 My dotfiles are provided with a script that will automatically install them on your system.
 ```bash
 $ ./install.sh
 ```
 
-
-# install nerdfonts
+# Manual installation
+## install nerdfonts
 download nerd fonts from [here](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip)
 ```bash
 mkdir NerdFonts
@@ -34,7 +47,7 @@ update font cache
 fc-cache -f -v
 ```
 
-# install packages
+## install packages
 ### Arch based distros
 using an AUR helper
 ```bash
@@ -88,7 +101,7 @@ install mini-matrix
 cd mini-matrix
 make
 ```
-# add my dotfiles
+## add my dotfiles
 ### clone this repo 
 ```bash
 git clone https://skwal.net/SkwalExe/dotfiles
@@ -147,7 +160,7 @@ dconf load /org/gnome/terminal/legacy/profiles:/ < ~/gnome-terminal-profiles-bac
 ```
 
 
-# Change gtk theme
+## Change gtk theme
 ### Arch linux
 using an AUR helper
 ```bash
@@ -162,7 +175,7 @@ sudo apt install gnome-themes-extra
 lxappearance
 ```
 **Widget > Adwaita-Dark**
-# set wallpaper
+## set wallpaper
 ```
 nitrogen
 ```
