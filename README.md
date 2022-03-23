@@ -18,21 +18,6 @@
 
 ![](3.gif)
 
-# Oneliner install on arch
-
-The skwal dotfiles installation script is available on the AUR 
-
-**install**
-
-```bash
-yay -S skwal-dotfiles-git
-```
-
-**and execute**
-
-```bash
-skwal-dotfiles-install
-```
 # Automatic installation script 
 
 My dotfiles are provided with a script that will automatically install them on your system with custom parameters.
